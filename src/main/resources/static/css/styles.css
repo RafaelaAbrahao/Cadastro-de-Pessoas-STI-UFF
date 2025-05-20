@@ -1,0 +1,14 @@
+.navbar, .btn-blue, .btn-cad{
+    background-color: 	#6497b1;
+    color: white;
+}
+
+.btn-edit {
+    color: black;
+    border: none;
+}
+
+.btn-del {
+    color: white;
+    background-color: #ff6961;
+}
