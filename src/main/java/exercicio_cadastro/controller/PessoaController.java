@@ -60,5 +60,3 @@ public class PessoaController {
     }
 
 }
-
-//requisição por http como fazere umpush no github se configurar chave ssh
