@@ -1,4 +1,4 @@
-package exercicio.cadastro.cadastro;
+package exercicio_cadastro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

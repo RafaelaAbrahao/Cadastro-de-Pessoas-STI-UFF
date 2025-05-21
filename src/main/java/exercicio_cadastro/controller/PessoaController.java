@@ -1,9 +1,10 @@
-package exercicio.cadastro.cadastro.controller;
+package exercicio_cadastro.controller;
 
-import exercicio.cadastro.cadastro.service.CadastroService;
+
+import exercicio_cadastro.service.PessoaService;
+import exercicio_cadastro.model.PessoaModel;
 import lombok.AllArgsConstructor;
 import org.springframework.ui.Model;
-import exercicio.cadastro.cadastro.model.PessoaModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,9 +12,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @AllArgsConstructor
-public class CadastroController {
+public class PessoaController {
 
-    private final CadastroService cadastroservice;
+    private final PessoaService cadastroservice;
 
 
     @GetMapping("/cadastro/new") //formulario de criação
@@ -36,7 +37,7 @@ public class CadastroController {
         return modelAndView;
     }
 
-@GetMapping("/cadastro/{id}") //exibe os detalhes do usuario para a edição do cadastro
+    @GetMapping("/cadastro/{id}") //exibe os detalhes do usuario para a edição do cadastro
     public ModelAndView editar(@PathVariable long id){
         PessoaModel pessoa = cadastroservice.findById(id);
         ModelAndView modelAndView = new ModelAndView("edicao");
@@ -44,19 +45,20 @@ public class CadastroController {
         return modelAndView;
     }
 
-@PostMapping("/cadastro/{id}") //processa o formulario de edição
+    @PostMapping("/cadastro/{id}") //processa o formulario de edição
     public String editarPessoa(@ModelAttribute PessoaModel pessoa, RedirectAttributes redirectAttributes) {
         cadastroservice.salvarPessoa(pessoa);
         redirectAttributes.addFlashAttribute("msg", "Cadastro atualizado com sucesso!");
         return "redirect:/cadastro";
     }
 
-    @DeleteMapping("/cadastro/{id}") //deleta o cadastro
-    public String deletarPessoa(@PathVariable long id, RedirectAttributes redirectAttributes){
+    @DeleteMapping("/cadastro/{id}")
+    public String deletarPessoa(@PathVariable long id, RedirectAttributes redirectAttributes) {
         cadastroservice.deletarPessoa(id);
         redirectAttributes.addFlashAttribute("msg", "Cadastro deletado com sucesso!");
         return "redirect:/cadastro";
     }
 
-
 }
+
+//requisição por http como fazere umpush no github se configurar chave ssh

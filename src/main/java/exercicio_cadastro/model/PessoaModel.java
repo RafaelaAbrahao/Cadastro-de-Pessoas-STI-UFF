@@ -1,4 +1,4 @@
-package exercicio.cadastro.cadastro.model;
+package exercicio_cadastro.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
