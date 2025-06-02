@@ -17,10 +17,11 @@ public class PessoaController {
     private final PessoaService cadastroservice;
 
 
-    @GetMapping("/cadastro/new") //formulario de criação
-    public String cadastro(Model model) {
-        model.addAttribute("pessoa", new PessoaModel());
-        return "formulario";
+    @GetMapping("/cadastro/new")
+    public ModelAndView cadastro() {
+        ModelAndView modelAndView = new ModelAndView("formulario");
+        modelAndView.addObject("pessoa", new PessoaModel());
+        return modelAndView;
     }
 
     @PostMapping("/cadastro/new") // Processa o formulário de criação
